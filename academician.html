@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Academician Panel - Manage Questions</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container" style="max-width: 600px;">
+  <h2 style="color: #00cec9;">⚙️ Academician Panel</h2>
+  <p style="font-size: 14px; margin-bottom: 20px;">Manage the question pool for your students.</p>
+
+  <form id="addQuestionForm">
+    <h3 style="font-size: 16px; margin-bottom: 15px; text-align: left;">➕ Add New Question</h3>
+    
+    <select name="quiz_id" required style="width: 100%; padding: 14px; margin-bottom: 12px; border: 1px solid #e5e7eb; border-radius: 10px; outline: none; background: #f9fafb; color: #111;">
+      <option value="">-- Select Target Quiz --</option>
+      <option value="1">Database Systems</option>
+      <option value="2">Internet Based Programming</option>
+      <option value="3">General Culture</option>
+      <option value="4">Physics General Test</option>
+      <option value="5">Math General Test</option>
+      <option value="6">C Programming</option>
+      <option value="7">Python</option>
+    </select>
+
+    <input type="text" name="question_text" placeholder="Question Text..." required>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <input type="text" name="optA" placeholder="Correct (Option A)" style="border-left: 4px solid #27ae60;" required>
+        <input type="text" name="optB" placeholder="Option B" required>
+        <input type="text" name="optC" placeholder="Option C" required>
+        <input type="text" name="optD" placeholder="Option D" required>
+    </div>
+
+    <button type="submit" style="background: #27ae60; margin-top: 10px;">Save Question</button>
+  </form>
+
+  <hr style="margin: 30px 0; border: 0; border-top: 1px solid rgba(255,255,255,0.1);">
+
+  <div id="managementArea">
+    <h3 style="font-size: 16px; margin-bottom: 15px; text-align: left;">📋 Existing Questions</h3>
+    
+    <div id="questionListContainer" style="text-align: left;">
+        <p style="font-size: 13px; opacity: 0.7;">Loading question pool...</p>
+    </div>
+  </div>
+
+  <button onclick="location.href='home.html'" style="background: transparent; color: #a29bfe; margin-top: 25px; border: 1px solid #a29bfe;">🔙 Back to Home</button>
+</div>
+
+<script src="js/admin.js"></script>
+
+</body>
+</html>

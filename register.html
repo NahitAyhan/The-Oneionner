@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>Register</h2>
+
+  <form id="registerForm">
+    <!-- Kullanıcı Tipi Seçimi -->
+    <select id="userType" style="width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; font-size: 14px; background-color: white;">
+      <option value="">Select Role...</option>
+      <option value="STUDENT">Student</option>
+      <option value="TEACHER">Academician</option>
+    </select>
+
+    <input type="text" id="tcNo" placeholder="TC Identity Number (11 Digits)">
+    <input type="text" id="studentNumber" placeholder="Student Number (10 Digits)" style="display: none;">
+    <input type="text" id="academicTitle" placeholder="Academic Title (e.g. Prof., Dr., Lec.)" style="display: none;">
+    
+    <input type="text" id="username" placeholder="Username">
+    <input type="text" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <input type="password" id="confirmPassword" placeholder="Confirm Password">
+    
+    <p id="registerError" style="color: red; font-size: 14px; margin-bottom: 15px; display: none;"></p>
+
+    <button type="submit">Create Account</button>
+  </form>
+
+  <p>Already have an account? <a href="login.html">Login</a></p>
+</div>
+
+<script src="js/validation.js"></script>
+</body>
+</html>

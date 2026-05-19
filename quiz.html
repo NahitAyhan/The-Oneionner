@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container quiz-container">
+
+  <div class="progress">
+    <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
+  </div>
+
+  <div class="timer">Time left: <span id="time">10</span>s</div>
+
+  <!-- Soru metni buraya gelecek -->
+  <div class="question" id="question">Loading question...</div>
+
+  <!-- Şıklar JS tarafından buraya eklenecek -->
+  <div id="options-container"></div>
+  
+  <button id="nextBtn" onclick="nextQuestion()" style="display: none;">Next</button>
+
+</div>
+
+<script src="./js/app.js"></script>
+
+</body>
+</html>

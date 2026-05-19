@@ -1,0 +1,456 @@
+/* =========================================
+   DEĞİŞKENLER (VARIABLES)
+   Tüm projede standart boşluklar (margin/padding) 
+   kullanmak için tanımlanmış kök değişkenler.
+   ========================================= */
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+}
+
+/* =========================================
+   HOME SAYFASI TASARIMLARI
+   ========================================= */
+
+/* Genel Home Arka Planı ve Yazı Rengi */
+.home-body {
+  background-color: #0f1020; /* Koyu lacivert arka plan rengi */
+  color: #333333;            /* Koyu gri yazı rengi */
+  font-family: sans-serif;   /* Tırnaksız, modern yazı tipi */
+  margin: 0;                 /* Sayfa kenarlarındaki varsayılan boşlukları sıfırlar */
+}
+
+/* Navbar (Üst Menü) */
+.navbar {
+  display: flex;                   /* İçindeki elemanları yan yana dizer */
+  justify-content: space-between;  /* Logoyu sola, linkleri sağa yaslar (arayı açar) */
+  align-items: center;             /* Elemanları dikeyde tam ortalar */
+  padding: 15px 30px;              /* Üst/alttan 15px, sağ/soldan 30px iç boşluk */
+  background-color: #2c3e50;       /* Koyu mavi/gri menü arka planı */
+  color: white;                    /* Menüdeki yazıların rengi */
+}
+
+.nav-logo {
+  font-weight: bold; /* Logo yazısını kalın yapar */
+  font-size: 20px;   /* Logo yazısının büyüklüğü */
+}
+
+/* Bu kural sağdaki isim kutusu ile çıkış butonunu kusursuzca yan yana dizer */
+.nav-links {
+  display: flex;
+  align-items: center;  /* Dikeyde tam ortalar */
+  gap: 20px;            /* İsim ile Logout butonu arasına 20px boşluk koyar */
+}
+
+.nav-links .greeting {
+  margin-right: 20px; /* "Hello" yazısı ile Logout butonu arasına boşluk koyar */
+  color: white;
+}
+
+.nav-links .logout-btn {
+  color: #e74c3c;          /* Çıkış butonu için kırmızı renk */
+  text-decoration: none;   /* Linkin altındaki çizgiyi kaldırır */
+  font-weight: bold;       /* Yazıyı kalınlaştırır */
+}
+
+.nav-links .logout-btn:hover {
+  color: #c0392b; /* Fareyle üzerine gelindiğinde (hover) rengi koyulaştırır */
+}
+
+/* Home İçerik Konteyneri */
+.home-container {
+  margin-top: 40px; /* Menü ile içerik arasına 40px boşluk bırakır */
+}
+
+/* Karşılama Alanı */
+.welcome-section {
+  text-align: center;   /* İçindeki metinleri ortalar */
+  margin-bottom: 30px;  /* Altındaki elemanla arasına boşluk koyar */
+  color: #f9f9f9;
+}
+
+.welcome-section h2 {
+    margin-bottom: 2px; /* Başlığın altındaki boşluğu neredeyse sıfırladık */
+}
+
+.welcome-section p {
+    margin-bottom: 20px;
+}
+
+/* Proje Bilgi Kutusu */
+.project-info {
+  background-color: #f9f9f9;  /* Çok açık gri arka plan */
+  color: #333333;
+  padding: 20px;              /* Kutunun iç kenar boşlukları */
+  border-radius: 8px;         /* Kutunun köşelerini 8px ovalleştirir */
+  margin-bottom: 30px;
+  border-left: 5px solid #3498db; /* Kutunun soluna mavi kalın bir çizgi çeker (vurgu) */
+  text-align: left;           /* Metinleri sola yaslar */
+}
+
+.project-info h3 {
+  margin-bottom: 5px;
+  color: #2c3e50;  /* Başlık rengini koyu mavi/gri yapar */
+}
+
+.project-info p {
+  font-size: 14px;
+  line-height: 1.6; /* Satırlar arası boşluğu açarak okunabilirliği artırır */
+}
+
+/* Aksiyon Butonları */
+.action-buttons {
+  display: flex;            /* Butonları yan yana dizer */
+  gap: 15px;                /* Butonlar arasına 15px boşluk koyar */
+  justify-content: center;
+}
+
+.action-buttons button {
+  padding: 10px 18px;
+  font-size: 16px;
+  color: white;
+  border: none;             /* Butonun varsayılan kenarlığını kaldırır */
+  border-radius: 10px;       /* Buton köşelerini ovalleştirir */
+  cursor: pointer;          /* Fare üzerine gelince el işareti çıkmasını sağlar */
+  transition: background-color 0.3s ease, transform 0.1s; /* Renk ve boyut animasyonu */
+}
+
+.action-buttons button:active {
+  transform: scale(0.95); /* Butona tıklandığı an boyutunu %5 küçültür (basılma hissi) */
+}
+
+.btn-start {
+  background-color: #27ae60; /* Başla butonu yeşil */
+}
+
+.btn-start:hover {
+  background-color: #219150; /* Fareyle üzerine gelince koyu yeşil olur */
+}
+
+.btn-leaderboard {
+  background-color: #f39c12; /* Liderlik butonu turuncu */
+}
+
+.btn-leaderboard:hover {
+  background-color: #d68910; /* Fareyle üzerine gelince koyu turuncu olur */
+}
+
+
+/* =========================================
+   KATEGORİ SEÇİM KUTUSU (DROPDOWN)
+   ========================================= */
+.category-select {
+  width: 100%;
+  max-width: 380px; /* Kutuyu biraz daha genişlettik, daha ferah durur */
+  padding: 15px 20px;
+  margin-top: 10px;
+  
+  /* Cam efekti (Glassmorphism) arka planı */
+  background-color: rgba(255, 255, 255, 0.06); 
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px; /* Köşeleri diğer butonlar gibi yuvarlattık */
+  
+  color: white; /* Seçili yazının rengi */
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  /* Tarayıcının varsayılan çirkin okunu silip, şık beyaz bir ok SVG'si ekliyoruz */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 15px center; /* Oku sağdan 15px içeri hizalar */
+}
+
+/* Kutuya tıklandığında (odaklanıldığında) kenarlığı turkuaz yapıp parlatır */
+.category-select:focus {
+  border-color: #00cec9;
+  background-color: rgba(0, 206, 201, 0.1);
+  box-shadow: 0 0 15px rgba(0, 206, 201, 0.2);
+}
+
+/* Açılan listenin (seçeneklerin) arka plan tasarımı */
+.category-select option {
+  background-color: #1a1b30; /* Açılınca arka plan koyu lacivert olsun */
+  color: white;
+  padding: 10px;
+}
+
+/* Alt Bilgi (Footer) */
+.home-footer {
+  text-align: center;
+  margin-top: 50px;
+  padding-bottom: 20px;
+  font-size: 12px;
+  color: #7f8c8d; /* Soluk gri metin rengi */
+}
+
+
+/* =========================================
+   GENEL SIFIRLAMA VE TEMEL AYARLAR
+   ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Genişlik hesaplamalarına padding/border dahil edilir (taşmaları önler) */
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  /* Çoklu radyal (dairesel) gradyan ile karmaşık ve modern bir arka plan oluşturur */
+  background:
+    radial-gradient(circle at top left, rgba(108,92,231,0.6) 0%, transparent 40%),
+    radial-gradient(circle at top right, rgba(0,206,201,0.5) 0%, transparent 45%),
+    radial-gradient(circle at bottom, rgba(255,154,60,0.4) 0%, transparent 50%),
+    #0f1020; /* En alt katmandaki sabit koyu renk */
+
+  color: #fff;           /* Sayfadaki varsayılan yazı rengi beyaz */
+  min-height: 100vh;     /* Ekranın en az %100 dikey yüksekliğini kaplamasını sağlar */
+  margin: 0;
+}
+
+
+/* =========================================
+   GLASS EFFECT (CAM EFEKTİ) KONTEYNERİ
+   Yarı saydam arayüz tasarımı
+   ========================================= */
+.container {
+  width: 100%;
+  max-width: 420px; /* Ekran ne kadar büyük olursa olsun kutu 420px'i geçmez */
+
+  margin: 60px auto; /* Üstten 60px boşluk, sağ/sol oto-margin ile kutuyu yatayda ortalar */
+  padding: 30px;     /* Kutunun iç kenar boşluğu */
+
+  /* Cam Efekti Çekirdek Ayarları */
+  background: rgba(255,255,255,0.06);   /* %6 oranında beyaz (çok saydam) arka plan */
+  border: 1px solid rgba(255,255,255,0.1); /* Çok ince, hafif belirgin beyaz dış çizgi */
+  backdrop-filter: blur(18px);          /* Arka planda kalan her şeyi 18px bulanıklaştırır (Buzlu cam) */
+  
+  border-radius: 16px; /* Kutunun köşelerini yumuşatır */
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4); /* Kutuya derinlik veren geniş ve yumuşak siyah gölge */
+  text-align: center;
+}
+
+.container:hover {
+  transform: scale(1.01); /* Fare üzerine gelince kutuyu hafifçe büyütür */
+  transition: 0.3s;       /* Bu büyüme işleminin 0.3s'de olmasını sağlar */
+}
+
+.container > * {
+  margin-bottom: 12px; /* Konteyner içindeki tüm alt elemanların arasına 12px boşluk koyar */
+}
+
+.container > *:last-child {
+  margin-bottom: 0; /* En alttaki elemanın alt boşluğunu siler (gereksiz boşluğu engeller) */
+}
+
+
+/* Başlık Ayarı */
+h2 {
+  margin-bottom: 16px;
+  font-weight: 600; /* Yarı kalın yazı */
+}
+
+/* =========================================
+   FORM ELEMANLARI (GİRİŞ KUTULARI VE BUTONLAR)
+   ========================================= */
+input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 12px;
+  border: 1px solid #e5e7eb; /* Açık gri ince kenarlık */
+  border-radius: 10px;       /* 10px oval köşe */
+  outline: none;             /* Tıklanınca çıkan varsayılan çirkin tarayıcı çizgisini siler */
+  background: #f9fafb;       /* Kutu içi rengi (kırık beyaz) */
+  color: #111;               /* Kutu içi yazı rengi siyaha yakın */
+}
+
+input:focus {
+  border-color: #5b6cff; /* Kutuya tıklandığında (odaklanınca) kenarlığı mora çevirir */
+  background: #fff;      /* Kutu içini tam beyaz yapar */
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+
+  /* Butona özel renkli gradyan arka plan */
+  background: linear-gradient(135deg, #6c5ce7, #00cec9, #ff9a3c);
+  background-size: 200% 200%; /* Animasyon için arka planı olması gerekenden 2 kat büyük yapar */
+  transition: 0.3s;           /* Tüm hover vs. değişimlerini 0.3sn'de yapar */
+}
+
+button:hover {
+  transform: translateY(-2px); /* Üzerine gelince butonu 2px yukarı kaldırır (havalanma hissi) */
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3); /* Havalandığında altına derin gölge verir */
+  animation: btnGlow 2s infinite;          /* Aşağıda tanımlı btnGlow renk kayma animasyonunu sonsuza kadar oynatır */
+}
+
+button:active {
+  transform: scale(0.98); /* Tıklanma anında %2 küçültür (fiziksel buton hissi) */
+}
+
+/* Linkler */
+a {
+  color: #a29bfe; /* Link rengi açık mor */
+  text-decoration: none;
+}
+
+
+/* =========================================
+   QUIZ (SINAV) EKRANI TASARIMLARI
+   ========================================= */
+.quiz-container {
+  max-width: 700px; /* Quiz kutusu genel kutudan daha geniş (700px) olabilir */
+}
+
+.question {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Cevap Şıkları (Seçenekler) */
+.option {
+  background: rgba(255,255,255,0.07); /* Şıkların varsayılan yarı saydam rengi */
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  border: 1px solid transparent; /* Varsayılan olarak şeffaf kenarlık (hover'da görünür olacak) */
+}
+
+.option:hover {
+  transform: scale(1.02); /* Üzerine gelince %2 büyür */
+  border-color: #00cec9;  /* Kenarlığı turkuaz olur */
+  background: rgba(0,206,201,0.1);
+}
+
+.option.selected {
+  border-color: #00cec9; /* Seçilen şıkkın kenarlığı turkuaz kalır */
+  background: rgba(0,206,201,0.15);
+  transform: translateY(-2px); /* Seçilince havada asılı kalır */
+}
+
+.option.correct {
+  border-color: #00c878;
+}
+
+.option.wrong {
+  border-color: #ff4d4d;
+}
+
+/* Sonuç Ekranı Skoru */
+.score {
+  font-size: 38px;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+/* İlerleme Çubuğu (Dış Kutu) */
+.progress {
+  height: 8px;
+  background: rgba(255,255,255,0.1); /* İçi boş çubuğun rengi */
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* İlerleme Çubuğu (Dolan İç Kısım) */
+.progress-bar {
+  height: 100%;
+  width: 40%; /* Varsayılan doluluk oranı (JS ile değişir) */
+  background: linear-gradient(90deg, #6c5ce7, #00cec9); /* Mor-Turkuaz gradyan dolgu */
+  transition: width 0.4s ease; /* Dolarken aniden değil, yumuşak bir şekilde kayarak dolar */
+}
+
+/* Süre Sayacı */
+.timer {
+  margin-bottom: 15px;
+  font-size: 14px;
+  opacity: 0.8; /* Yazıyı %20 oranında saydamlaştırıp arka plana uydurur */
+}
+
+
+/* =========================================
+   ANİMASYONLAR (KEYFRAMES)
+   ========================================= */
+
+/* Sayfa yüklendiğinde elemanların aşağıdan yukarıya yavaşça belirmesini sağlar */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Butonun içindeki gradyan arka planı sağa sola kaydırarak parlama hissi verir */
+@keyframes btnGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* =========================================
+   LİDERLİK TABLOSU (LEADERBOARD) TASARIMLARI
+   ========================================= */
+.leaderboard-container {
+  max-width: 500px; /* Liderlik tablosu 500px genişlikle sınırlandırılır */
+}
+
+.leaderboard {
+  margin-top: 20px;
+}
+
+/* Oyuncu Satırı */
+.player {
+  display: flex;
+  justify-content: space-between; /* Sıralama, isim ve skoru kutu içine eşit dağıtır */
+  padding: 15px;
+  margin: 10px 0;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.06); /* Sıradan oyuncular için standart saydamlık */
+}
+
+.player:hover {
+  transform: scale(1.02); /* Üzerine gelince satırı büyütür */
+  background: rgba(96, 213, 255, 0.925);
+}
+
+/* İLK 3 KİŞİYE ÖZEL TASARIMLAR */
+.top1 {
+  background: linear-gradient(135deg, gold, orange); /* 1. kişiye altın gradyanı */
+  color: #000;       /* Altın üzerinde rahat okunması için siyah yazı */
+  font-weight: bold; /* Kalın yazı */
+}
+
+.top2 {
+  background: linear-gradient(135deg, silver, #aaa); /* 2. kişiye gümüş gradyanı */
+  color: #000;
+  font-weight: bold;
+}
+
+.top3 {
+  background: linear-gradient(135deg, #cd7f32, #a0522d); /* 3. kişiye bronz gradyanı */
+  color: #fff;       /* Bronz koyu olduğu için üstünde beyaz yazı */
+  font-weight: bold;
+}

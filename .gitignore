@@ -1,0 +1,15 @@
+# IDE Ayarları (VS Code, PhpStorm vb.)
+.vscode/
+.idea/
+
+# Windows sistem dosyaları (Gereksiz dosyalar)
+Thumbs.db
+Desktop.ini
+
+# Veritabanı şifreleri (Kritik!)
+# Gerçek veritabanı şifrenin olduğu dosyayı GitHub'a yüklememek için buraya ekliyoruz
+db_connect.php
+
+# Log ve geçici dosyalar
+*.log
+*.tmp

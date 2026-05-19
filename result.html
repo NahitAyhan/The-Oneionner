@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Result</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>🎉 Quiz Completed</h2>
+
+  <div class="score" id="finalScoreDisplay">
+    Yükleniyor...
+  </div>
+
+  <p>Great job! Try again to beat your score.</p>
+
+  <button onclick="location.href='home.html'">Play Again</button>
+  <button onclick="location.href='leaderboard.html'">View Leaderboard</button>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      // localStorage'dan "quizScore" değerini al
+      let finalScore = localStorage.getItem("quizScore");
+      
+      // Eğer değer yoksa (sayfa direkt açılmışsa) 0 göster
+      if (finalScore === null) {
+          finalScore = 0;
+      }
+      
+      // Değeri HTML içindeki ilgili yere yaz
+      document.getElementById("finalScoreDisplay").innerText = finalScore + " Points";
+  });
+</script>
+
+</body>
+</html>

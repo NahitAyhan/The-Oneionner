@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Home - The Oneionner</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="home-body">
+
+  <nav class="navbar">
+    <div class="nav-logo">KBU The Oneionner</div>
+    <div class="nav-links">
+      <div style="display: flex; flex-direction: column; text-align: right;">
+        <span class="greeting" id="userGreeting" style="font-weight: bold; margin: 0;">Hello!</span>
+        <span id="navStudentId" style="font-size: 12px; color: #00cec9;"></span>
+      </div>
+      <a href="login.html" class="logout-btn" onclick="logout()">Logout</a>
+    </div>
+  </nav>
+
+  <div class="container home-container">
+
+    <div class="welcome-section">
+      <h2>Welcome to the Arena! 🎯</h2>
+      <p>Are you ready to test your knowledge?</p>
+    </div>
+
+    <div class="project-info">
+      <h3>About the Project</h3>
+      <p>
+        This platform is developed as a joint project for <strong>CPE210 Database Systems</strong> and <strong>CPE212
+          Internet Based Programming</strong> courses.
+        The system features secure user authentication, a dynamic quiz engine, and a competitive leaderboard. Our goal
+        is to demonstrate both client-side interactive UI and robust server-side data management.
+      </p>
+    </div>
+
+    <div style="margin-bottom: 30px; text-align: center;">
+      <select id="categorySelect" class="category-select">
+        <option value="">-- Select a Category --</option>
+        <option value="1">Database Systems (CPE210)</option>
+        <option value="2">Internet Based Programming (CPE212)</option>
+        <option value="3">General Culture</option>
+        <option value="4">Physics</option>
+        <option value="5">Mathematics</option>
+        <option value="6">C Programming</option>
+        <option value="7">Python</option>
+      </select>
+    </div>
+
+    <div class="action-buttons">
+      <button class="btn-start" onclick="startQuiz()">🚀 Start Quiz</button>
+      <button class="btn-leaderboard" onclick="location.href='leaderboard.html'">🏆 View Leaderboard</button>
+
+      <button id="btnAcademician" class="btn-academician" style="display: none;"
+        onclick="location.href='academician.html'">⚙️ Add Question</button>
+    </div>
+
+  </div>
+
+  <footer class="home-footer">
+    <p>&copy; 2026 Karabuk University - CPE210 & CPE212 Joint Project</p>
+  </footer>
+
+  <script>
+    // Sayfa yüklendiğinde kullanıcının adını yazdır
+    document.addEventListener("DOMContentLoaded", () => {
+      let username = localStorage.getItem("loggedUsername") || "Player";
+      let userType = localStorage.getItem("userType");
+      let studentNumber = localStorage.getItem("studentNumber");
+
+      document.getElementById("userGreeting").innerText = "Hello, " + username + "!";
+
+      const navStdId = document.getElementById("navStudentId");
+
+      // Gerçek role göre arayüzü şekillendir
+      if (userType === 'TEACHER') {
+        navStdId.innerText = "Academician Account";
+        document.getElementById("btnAcademician").style.display = "inline-block"; // Hoca butonunu göster
+      } else {
+        navStdId.innerText = "Student ID: " + studentNumber;
+      }
+    });
+
+    // Quiz başlatma mantığı
+    function startQuiz() {
+      const selectedCategory = document.getElementById("categorySelect").value;
+
+      if (selectedCategory === "") {
+        alert("Please select a category before starting the quiz!");
+        return;
+      }
+
+      // Seçilen kategorinin ID'sini PHP'ye göndermek üzere kaydediyoruz
+      localStorage.setItem("selectedCategoryId", selectedCategory);
+
+      // Quiz sayfasına yönlendir
+      window.location.href = "quiz.html";
+    }
+
+    // Çıkış yapma mantığı
+    function logout() {
+      localStorage.clear(); // Hafızadaki TC, username vb. her şeyi temizler
+    }
+  </script>
+
+</body>
+
+</html>
